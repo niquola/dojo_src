@@ -1,0 +1,3 @@
+= DojoSrc
+
+ dojo packed into gem

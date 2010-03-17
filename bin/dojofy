@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+require 'ftools'
+place = ARGV.shift
+place.gsub!(/^\//,'')
+if !place
+  "Please specify folder to install dojo"
+  exit 1
+end
+dojo_path = File.join(File.dirname(__FILE__),'../dojo')
+
+puts "Dojofy your application"
+FileUtils.mkdir_p place
+%w{dojo util dijit dojox}.each do |mod|
+  puts "link #{place}/#{mod}"
+  system "ln -s #{dojo_path}/#{mod} #{place}/#{mod}"
+end
+puts "Dojofy done"
