@@ -1,0 +1,4 @@
+= DojoSrc
+
+Dojo packaged as a gem.
+

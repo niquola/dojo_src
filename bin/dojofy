@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+
+place = ARGV.shift.dup
+
+if !place
+  "Please specify folder to install dojo"
+  exit 1
+end
+
+version = ARGV.shift
+
+#try to find version
+version_file = File.join(place,'DOJO_VERSION')
+
+installed_version = nil
+if File.exists?(version_file)
+  installed_version = File.readlines(version_file)[0].chomp
+end
+
+puts installed_version
+if version && installed_version && installed_version == version
+  puts 'dojo installed and dojo version is up to date'
+  exit
+end
+
+if version
+  "Linking dojo with version #{version}"
+  gem 'dojo_src',version
+end
+require 'dojo_src'
+DojoSrc.dojofy(place)
