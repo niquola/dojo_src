@@ -5,7 +5,7 @@ require 'rake/rdoctask'
 require 'rake/gempackagetask'
 
 
-PKG_FILES = FileList[ '[a-zA-Z]*', 'dojo/**/*']
+PKG_FILES = FileList[ '[a-zA-Z]*', 'dojo/**/*', 'lib/**/*']
 
 
 spec = Gem::Specification.new do |s|
@@ -14,12 +14,13 @@ spec = Gem::Specification.new do |s|
   s.author = "niquola"
   s.email = "niquola@gmail.com"
   s.executables << 'dojofy' 
+  s.require_path = "lib"
   #s.homepage = ""
   s.platform = Gem::Platform::RUBY
   s.summary = "Dojo sources"
   s.files = PKG_FILES.to_a 
   s.has_rdoc = false
-  s.extra_rdoc_files = ["README"]
+  s.extra_rdoc_files = ["README.rdoc"]
 end
 
 
