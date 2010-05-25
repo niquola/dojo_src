@@ -1,6 +1,6 @@
-require 'ftools'
+require 'fileutils'
 module DojoSrc
-  VERSION='1.4.1'
+  VERSION='1.4.3'
   class << self
     def dojofy(path)
       dojo_path = File.join(File.dirname(__FILE__),'../dojo')

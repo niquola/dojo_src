@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'lib/dojo_src.rb'
 require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
@@ -10,7 +11,7 @@ PKG_FILES = FileList[ '[a-zA-Z]*', 'dojo/**/*', 'lib/**/*']
 
 spec = Gem::Specification.new do |s|
   s.name = "dojo_src"
-  s.version = "1.4.1"
+  s.version = DojoSrc::VERSION
   s.author = "niquola"
   s.email = "niquola@gmail.com"
   s.executables << 'dojofy' 

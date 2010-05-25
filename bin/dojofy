@@ -8,8 +8,6 @@ if !place
   exit 1
 end
 
-version = ARGV.shift
-
 #try to find version
 version_file = File.join(place,'DOJO_VERSION')
 
@@ -18,15 +16,13 @@ if File.exists?(version_file)
   installed_version = File.readlines(version_file)[0].chomp
 end
 
-puts installed_version
+require 'dojo_src'
+version = DojoSrc::VERSION
 if version && installed_version && installed_version == version
   puts 'dojo installed and dojo version is up to date'
   exit
 end
-
-if version
-  "Linking dojo with version #{version}"
-  gem 'dojo_src',version
-end
-require 'dojo_src'
+puts "Installed version of dojo: #{installed_version}"
 DojoSrc.dojofy(place)
+
+
