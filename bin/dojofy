@@ -24,5 +24,3 @@ if version && installed_version && installed_version == version
 end
 puts "Installed version of dojo: #{installed_version}"
 DojoSrc.dojofy(place)
-
-
