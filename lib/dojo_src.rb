@@ -1,6 +1,6 @@
 require 'fileutils'
 module DojoSrc
-  VERSION='1.4.3'
+  VERSION='1.5.0'
   class << self
     def dojofy(path)
       dojo_path = File.join(File.dirname(__FILE__),'../dojo')
